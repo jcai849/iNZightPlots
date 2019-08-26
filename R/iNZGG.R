@@ -1256,3 +1256,17 @@ iNZightPlotGG_scatter <- function(data, x, y, main = "Scatterplot", xlab = as.ch
     plot = plot_expr
   )
 }
+
+iNZightPlotGG_density2d <- function(data, x, y, main = "Scatterplot", xlab = as.character(x), ylab = as.character(y), ...) {
+  x <- rlang::sym(x)
+  y <- rlang::sym(y)
+  
+  plot_expr <- rlang::expr(
+    ggplot2::ggplot(!!rlang::enexpr(data), ggplot2::aes(x = !!x, y = !!y)) + 
+      ggplot2::geom_density2d()
+  )
+  
+  list(
+    plot = plot_expr
+  )
+}
