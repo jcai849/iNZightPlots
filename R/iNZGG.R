@@ -1234,3 +1234,25 @@ iNZightPlotGG_beeswarm <- function(data, x, y, main = sprintf("Distribution of %
     plot = plot_expr
   )
 }
+
+iNZightPlotGG_scatter <- function(data, x, y, main = "Scatterplot", xlab = as.character(x), ylab = as.character(y), rug = TRUE, ...) {
+  x <- rlang::sym(x)
+  y <- rlang::sym(y)
+  
+  plot_expr <- rlang::expr(
+    ggplot2::ggplot(!!rlang::enexpr(data), ggplot2::aes(x = !!x, y = !!y)) + 
+      ggplot2::geom_point()
+  )
+  
+  if (rug) {
+    plot_expr <- rlang::expr(!!plot_expr + ggplot2::geom_rug())
+  }
+  
+  if (TRUE) {
+    plot_expr <- rlang::expr(!!plot_expr + ggplot2::geom_smooth())
+  }
+  
+  list(
+    plot = plot_expr
+  )
+}
