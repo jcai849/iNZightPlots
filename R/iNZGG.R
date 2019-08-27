@@ -323,7 +323,8 @@ iNZightPlotGG <- function(
   caption = NULL,
   extra_args = c(), 
   palette = "default",
-  gg_theme = "grey"
+  gg_theme = "grey",
+  print = TRUE
 ) {
   dots <- list(...)
   
@@ -402,11 +403,13 @@ iNZightPlotGG <- function(
   
   plot_object <- eval_results[[length(eval_results)]]
   
-  dev.hold()
-  tryCatch(
-    print(plot_object),
-    finally = dev.flush()
-  )
+  if (print) {
+    dev.hold()
+    tryCatch(
+      print(plot_object),
+      finally = dev.flush()
+    )
+  }
   
   attr(plot_object, "code") <- unname(unlist(lapply(plot_exprs, rlang::expr_text)))
   attr(plot_object, "plottype") <- c(type)
