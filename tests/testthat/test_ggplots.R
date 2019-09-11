@@ -3,7 +3,7 @@ context("ggplots")
 data("mtcars")
 mtcars$cyl <- factor(mtcars$cyl)
 
-test_that("FT boxplot plots correctly", {
+test_that("boxplot plots correctly", {
   vdiffr::expect_doppelganger("one-way boxplot", 
     iNZightPlotGG(mtcars, "gg_boxplot", y = "hp", print = FALSE)
   )
@@ -21,7 +21,7 @@ test_that("FT boxplot plots correctly", {
   )
 })
 
-test_that("FT density plots correctly", {
+test_that("density plots correctly", {
   vdiffr::expect_doppelganger("one-way density plot", 
     iNZightPlotGG(mtcars, "gg_density", y = "hp", print = FALSE)                      
   )
@@ -51,8 +51,22 @@ test_that("FT density plots correctly", {
   )
 })
 
-test_that("FT pie plots correctly", {
+test_that("pie plots correctly", {
   vdiffr::expect_doppelganger("pie plot",
     iNZightPlotGG(mtcars, "gg_pie", fill = "cyl", print = FALSE)
+  )
+  
+  vdiffr::expect_doppelganger("pie orders groups",
+    iNZightPlotGG(mtcars, "gg_pie", fill = "cyl", ordered = TRUE, print = FALSE)
+  )
+})
+
+test_that("donut plots correctly", {
+  vdiffr::expect_doppelganger("pie plot",
+    iNZightPlotGG(mtcars, "gg_donut", fill = "cyl", print = FALSE)
+  )
+  
+  vdiffr::expect_doppelganger("pie orders groups",
+    iNZightPlotGG(mtcars, "gg_donut", fill = "cyl", ordered = TRUE, print = FALSE)
   )
 })
