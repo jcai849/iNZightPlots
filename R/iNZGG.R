@@ -342,6 +342,8 @@ iNZightPlotGG <- function(
     rotate_labels <- extra_args$rotate_labels
     
     extra_args$desc <- desc
+  } else {
+    rotate <- FALSE
   }
   
   plot_args <- iNZightPlotGG_decide(data, unlist(dots), type, extra_args)

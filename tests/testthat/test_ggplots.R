@@ -62,11 +62,25 @@ test_that("pie plots correctly", {
 })
 
 test_that("donut plots correctly", {
-  vdiffr::expect_doppelganger("pie plot",
+  vdiffr::expect_doppelganger("donut plot",
     iNZightPlotGG(mtcars, "gg_donut", fill = "cyl", print = FALSE)
   )
   
-  vdiffr::expect_doppelganger("pie orders groups",
+  vdiffr::expect_doppelganger("donut orders groups",
     iNZightPlotGG(mtcars, "gg_donut", fill = "cyl", ordered = TRUE, print = FALSE)
+  )
+})
+
+test_that("gridplot plots correctly", {
+  vdiffr::expect_doppelganger("gridplot", 
+    iNZightPlotGG(mtcars, "gg_gridplot", x = "cyl", print = FALSE)
+  )
+  
+  vdiffr::expect_doppelganger("gridplot rotates", 
+    iNZightPlotGG(mtcars, "gg_gridplot", x = "cyl", extra_args = list(rotation = TRUE), print = FALSE)
+  )
+  
+  vdiffr::expect_doppelganger("gridplot can change N per square", 
+    iNZightPlotGG(mtcars, "gg_gridplot", x = "cyl", extra_args = list(gg_perN = 5), print = FALSE)
   )
 })
