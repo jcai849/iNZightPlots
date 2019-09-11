@@ -1,4 +1,4 @@
-context("FT ggplots")
+context("ggplots")
 
 data("mtcars")
 mtcars$cyl <- factor(mtcars$cyl)
