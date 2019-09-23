@@ -1,9 +1,37 @@
-# iNZightPlots 2.10.9.9000
-__Release date__:
+# iNZightPlots 2.10.3.9000
+__Release date__: TBA
+
+
+
+# iNZightPlots 2.10.3
+__Release date__: 23 September 2019
+
+- rotate spine plot by default
+- change default colouring behaviour for categorical lollipop plots 
+- add interactivity for mean indicators on dotplots/histograms
+- add ability to rotate x/y axis labels for ggplots
+
+
+# iNZightPlots 2.10.2
+__Release date__: 2 September 2019
+
+- fix a bug where level labels weren't shown in one-way table inference
+- add hypothesis test for proportions (normal and exact) 
+- show simulated p-value for Chi-square test when expected counts < 5 or requested by user
+- fix bug in exported interactive plots when boxplots are disabled
+- add ability to rotate x-axis label text
+- add ability to change the number of observations each square represents for gridplots
+- rotate some numeric plots to have variable of interest on x-axis, e.g. violins (#106, daniel-barnett)
+- add new `quasirandom` plot instead of `beeswarm` to enable control of swarm width/method 
+
+
+# iNZightPlots 2.10.1
+__Release date__: 26 August 2019
 
 - fix greyscale palette for ggplot heatmaps (#121, @daniel-barnett)
 - add rotation functionality for gridplots (#123, @daniel-barnett)
 - add useful summary information for dates and times
+
 
 # iNZightPlots 2.10
 __Release date__: 13 August 2019
